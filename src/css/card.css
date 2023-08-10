@@ -1,0 +1,55 @@
+.card {
+    width: 190px;
+    height: 100px;
+    display: flex;
+    position: relative;
+
+}
+
+.card img {
+    width: 190px;
+    border-radius: 10px;
+}
+
+.card p {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: aliceblue;
+    font-weight: 500;
+}
+
+@media only screen and (min-width: 768px)and (max-width: 1023px) {
+    .card {
+        width: 120px;
+    }
+
+    .card img {
+        width: 120px;
+    }
+
+    .card p {
+        font-size: 12px;
+        top: 10px;
+        left: 10px;
+        
+    }
+    .txt-hero p{
+        font-size: 12px;
+    }
+
+}
+
+@media only screen and (min-width: 319px)and (max-width: 767px){
+    .card{
+        width: 200px;
+        height: 70px;
+    }
+    .card img{
+        width: 200px;
+    }
+    .card p{
+        font-size: 12px;
+    }
+
+}
