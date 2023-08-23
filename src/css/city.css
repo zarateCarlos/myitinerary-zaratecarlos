@@ -1,0 +1,30 @@
+.container-cities{
+    height: 100vh;
+    margin-bottom: 20px;
+}
+.cities {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+
+}
+
+input {
+    padding: 5px;
+    width: 500px;
+    cursor: pointer;
+
+}
+input:focus::placeholder{
+    color: transparent;
+}

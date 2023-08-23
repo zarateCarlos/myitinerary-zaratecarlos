@@ -5,6 +5,7 @@ import { Children } from "react";
 import { HomeLayout } from "./layaouts/HomeLayout";
 import NotFound from "./componentes/NotFound";
 import Cities from "./componentes/Cities";
+import City from "./componentes/City";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
             { path: '/home', element: <Home /> },
             { path: '/*', element: <NotFound /> },
             { path: '/cities', element: <Cities /> },
+            { path: '/city/:city_id', element: <City />},
 
         ]
     }
