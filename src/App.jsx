@@ -1,16 +1,18 @@
-import { Home } from "./pages/Home";
-import { HomeLayout } from "./layaouts/HomeLayout";
 import "./css/app.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./Router";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 
 
 const App = () => {
     return (
-    
 
-        <RouterProvider router={router} />
+        <Provider store={store}>
+            <RouterProvider router={router} />
+        </Provider>
+
 
     )
 }

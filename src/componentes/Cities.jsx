@@ -1,18 +1,23 @@
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect, useRef } from 'react'
+import city_actions from '../store/actions/cities'
+const { read_cities } = city_actions
 import Card from './Card'
-import apiUrl from '../apiUrl'
 import '../css/city.css'
 
 const Cities = () => {
-  const [cities, setCities] = useState([])
+
+  const cities = useSelector(store => store.cities.cities)
   const [reEffect, setReEffect] = useState(true)
-  const text = useRef()
+  const texto = useRef()
+  const dispatch = useDispatch()
+
   useEffect(
     () => {
-      axios(apiUrl + 'cities?city=' + text.current.value)
-        .then(res => setCities(res.data.response))
-        .catch(err => console.log(err))
+      dispatch(read_cities({ text:texto.current?.value }))
+      //axios(apiUrl + 'cities?city=' + text.current.value)
+      // .then(res => setCities(res.data.response))
+      //.catch(err => console.log(err))
     }, [reEffect]
   )
 
@@ -26,16 +31,16 @@ const Cities = () => {
     <>
       <div className="container-cities">
         <div className="input">
-          <input ref={text} type="text" placeholder='&#128269; Search your city' name="text" id="text" onKeyUp={handlerFilter} />
+          <input ref={texto} type="text" placeholder='&#128269; Search your city' name="text" id="text" onKeyUp={handlerFilter} />
         </div>
 
         <div className="cities">
 
-          {cities.length === 0 ? (
-          <div className="buscar">
+          { cities.length === 0 ? (
+            <div className="buscar">
               <h2>No cities found with that name!</h2>
-            <img src="/buscar.gif" alt="" />
-          </div>
+              <img src="/buscar.gif" alt="" />
+            </div>
           ) : (
             cities.map(item =>
               <Card

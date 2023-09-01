@@ -1,12 +1,17 @@
 import Hero from "../componentes/Hero";
-import { HomeLayout } from "../layaouts/HomeLayout";
+import Form from "./Form";
 
 
 
 export const Home = () => {
     return (
+        <>
 
-        <Hero />
+            <Hero />
+
+
+
+        </>
 
 
 

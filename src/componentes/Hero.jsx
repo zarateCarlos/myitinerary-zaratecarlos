@@ -1,19 +1,25 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
-import apiUrl from '../apiUrl'
+import { useSelector, useDispatch } from "react-redux"
 import Card from "./Card"
 import "../css/hero.css"
 import { Link as Anchor } from "react-router-dom"
-
+import city_actions from "../store/actions/cities"
+const { read_carousel } = city_actions
 
 const Hero = () => {
-    const [data, setData] = useState([])
+
+    const carousel = useSelector(store => store.cities.carousel)
+    const dispatch = useDispatch()
 
     useEffect(
         () => {
-            axios(apiUrl + 'cities/carousel')
-                .then(res => setData(res.data.data_carousel))
-                .catch(err => console.log(err))
+            if (carousel.length===0) {
+                dispatch(read_carousel())
+            }
+            
+            // axios(apiUrl + 'cities/carousel')
+            //.then(res => setData(res.data.data_carousel))
+            //.catch(err => console.log(err))
         },
         []
     )
@@ -23,7 +29,7 @@ const Hero = () => {
     let [counterTo, setCounterTo] = useState(4)
 
     let siguiente = () => {
-        if (data.length <= counterTo) {
+        if (carousel.length <= counterTo) {
             setCounter(0)
             setCounterTo(4)
         } else {
@@ -34,8 +40,8 @@ const Hero = () => {
     }
     let anterior = () => {
         if (counter <= 0) {
-            setCounter(data.length - 4)
-            setCounterTo(data.length)
+            setCounter(carousel.length - 4)
+            setCounterTo(carousel.length)
         } else {
             setCounter(counter - 4)
             setCounterTo(counterTo - 4)
@@ -61,7 +67,7 @@ const Hero = () => {
                 <div className="flecha" onClick={anterior} >&lt;</div>
 
                 <div className="card-contenedor" >
-                    {data.slice(counter, counterTo).map((item, index) => (
+                    {carousel.slice(counter, counterTo).map((item, index) => (
                         <Card
                             key={index}
                             src={item.photo}
