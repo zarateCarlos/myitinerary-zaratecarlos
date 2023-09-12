@@ -1,5 +1,5 @@
 import Hero from "../componentes/Hero";
-import Form from "./Form";
+import Form from "../componentes/FormSignUp";
 
 
 

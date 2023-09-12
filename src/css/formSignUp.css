@@ -1,0 +1,45 @@
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.301);
+    border-radius: 10px;
+    height: 83vh;
+
+
+}
+
+form img {
+    width: 200px;
+    cursor: pointer;
+}
+
+form p {
+    font-weight: 900;
+    color: black;
+}
+
+.sign {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.in {
+    text-decoration: none;
+    background-color: #4F46E5;
+    padding: 8px 16px;
+    border-radius: 10px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.formulario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

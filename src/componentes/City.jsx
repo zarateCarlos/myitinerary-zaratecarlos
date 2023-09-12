@@ -7,6 +7,7 @@ import itinerary_actions from '../store/actions/itineraries'
 const { read_itineraries_from_city } = itinerary_actions
 const { read_cityDetail } = city_actions
 import Tarjeta from './Tarj'
+import Activity from './Activity'
 import store from '../store/store'
 
 const City = () => {
@@ -35,10 +36,12 @@ const City = () => {
     )
 
 
-
     const city = useSelector(store => store.cities.cityDetail)
     const itineraries = useSelector(store => store.itineraries.itineraries_from_city)
-    console.log(city);
+   
+console.log(itineraries);
+
+
 
     const toggleCreador = (index) => {
         const newCreadorStates = [...creador];
@@ -92,12 +95,12 @@ const City = () => {
 
             {show && itineraries.length === 0 ? (
                 <div className="noItinerary">
-                    <p>NO HAY ITINERARIOS AUN PARA ESTA CIUDAD!</p>
+                    <p>THERE ARE NO ITINERARIES YET FOR THIS CITY!</p>
                     <img src="https://media.tenor.com/p8riXqjS-ycAAAAC/feel-sad.gif" alt="not itineraries" />
                 </div>
 
 
-            ) : ( show &&
+            ) : (show &&
                 itineraries.map((item, index) =>
 
                     <div key={item._id}>
@@ -133,8 +136,7 @@ const City = () => {
                                 {creador[index] ? '⇑' : '⇩'}
                             </span>
                         </div>
-                        {creador[index] && <div className='activity'>Activity <br /> Under Construction</div>}
-
+                        {creador[index] && <div className='activity'>Activities<Activity itineraryId={item._id} /> </div>}
 
 
                     </div>

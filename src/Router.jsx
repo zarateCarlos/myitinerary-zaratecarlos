@@ -4,7 +4,9 @@ import { HomeLayout } from "./layaouts/HomeLayout";
 import NotFound from "./componentes/NotFound";
 import Cities from "./componentes/Cities";
 import City from "./componentes/City";
-import Form from "./pages/Form";
+import FormSignUp from "./componentes/FormSignUp";
+import FormSignIn from "./componentes/FormSignIn";
+import Activity from "./componentes/Activity";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +18,9 @@ const router = createBrowserRouter([
             { path: '/home', element: <Home />},
             { path: '/cities', element: <Cities />},
             { path: '/city/:city_id', element: <City />},
-            { path: '/:name/:last_name', element: <Form />},
+           // { path: '/activities/:itinerary_id', element: <Activity />},
+            { path: '/auth/signup', element: <FormSignUp />},
+            { path: '/auth/signin', element: <FormSignIn />},
             { path: '/*', element: <NotFound />},
 
         ]

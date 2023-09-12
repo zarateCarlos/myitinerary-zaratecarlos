@@ -1,0 +1,23 @@
+.activityConteiner {
+    display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+
+.activityConteiner img {
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+}
+
+.activityConteiner p {
+    font-size: 15px;
+}
+.noItinerary img{
+    width: 200px;
+
+}
+.noItinerary p{
+    font-size: 20px;
+}
